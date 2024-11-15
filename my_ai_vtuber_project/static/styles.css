@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, textarea, button {
+    margin: 10px 0;
+}

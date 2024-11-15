@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 버튜버 대시보드</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>메뉴</h2>
+        <ul>
+            <li><a href="/">대시보드</a></li>
+            <li><a href="/settings">설정</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>AI 버튜버 대시보드</h1>
+        <form id="chat-form">
+            <label for="user_input">대화 입력:</label>
+            <input type="text" id="user_input" name="user_input">
+            <label for="character_prompt">캐릭터 설정:</label>
+            <textarea id="character_prompt" name="character_prompt"></textarea>
+            <button type="submit">전송</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script>
+        document.getElementById("chat-form").onsubmit = async function(e) {
+            e.preventDefault();
+            const user_input = document.getElementById("user_input").value;
+            const character_prompt = document.getElementById("character_prompt").value;
+
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_input, character_prompt })
+            });
+            const data = await response.json();
+            document.getElementById("response").innerText = data.response;
+        };
+    </script>
+</body>
+</html>
