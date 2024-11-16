@@ -1,5 +1,5 @@
 Flask==2.1.2
 websocket-client==1.5.1
-tensorflow==2.4.1
+tensorflow==2.14.1
 transformers==4.10.0
 torch==1.9.0
